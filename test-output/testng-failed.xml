@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.ect.testCases.LoginTest">
+      <class name="com.ect.testCases.SearchTestCase">
         <methods>
+          <include name="searchTest"/>
           <include name="setup"/>
-          <include name="Logintest" invocation-numbers="1"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.ect.testCases.LoginTest -->
+      </class> <!-- com.ect.testCases.SearchTestCase -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
