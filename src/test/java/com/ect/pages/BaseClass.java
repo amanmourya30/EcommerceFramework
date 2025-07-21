@@ -15,11 +15,13 @@ import com.ect.utility.ConfigDataProvider;
 public class BaseClass {
 	public WebDriver driver;
 	public LoginPage lp;
+	public SearchPages sp;
 
 	@BeforeClass
 	public void setup() {
 		driver = BrowserFactory.startApplication(driver, config.getBrowser(), config.getTestUrl());
 		lp = new LoginPage(driver);
+		sp = new SearchPages(driver);
 	}
 
 	@AfterClass
@@ -34,6 +36,8 @@ public class BaseClass {
 		FileUtils.copyFile(source, file);
 		return System.getProperty("user.dir") + "//screenshots//" + testCaseName + ".png";
 	}
+	
+	
 
 	ConfigDataProvider config = new ConfigDataProvider();
 }
