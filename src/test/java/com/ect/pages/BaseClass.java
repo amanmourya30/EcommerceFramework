@@ -7,6 +7,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import com.ect.utility.BrowserFactory;
@@ -37,7 +38,10 @@ public class BaseClass {
 		return System.getProperty("user.dir") + "//screenshots//" + testCaseName + ".png";
 	}
 	
-	
+	public void scrollIntoView(WebElement element, WebDriver driver) {
+	    ((org.openqa.selenium.JavascriptExecutor) driver)
+	        .executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element);
+	}
 
 	ConfigDataProvider config = new ConfigDataProvider();
 }

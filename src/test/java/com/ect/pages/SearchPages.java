@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class SearchPages {
+public class SearchPages extends BaseClass {
 
 	WebDriver driver;
 
@@ -22,8 +22,11 @@ public class SearchPages {
 	@FindBy(xpath = "//input[@id='search_product']")
 	WebElement searchProduct;
 
-	@FindBy(xpath = "//div[@class='overlay-content']//a[@class='btn btn-default add-to-cart'][normalize-space()='Add to cart']")
+	@FindBy(linkText = "Add to cart")
 	WebElement AddtoCart;
+	
+	@FindBy(xpath = "//img[@alt='ecommerce website products']")
+	WebElement image;
 
 	@FindBy(xpath = "//u[normalize-space()='View Cart']")
 	WebElement ViewCartLink;
@@ -41,6 +44,8 @@ public class SearchPages {
 		clickProducts();
 		searchProduct.sendKeys("Premium Polo T-Shirts");
 		submitSearch.click();
+//		scrollIntoView(image, driver);
+		scrollIntoView(AddtoCart, driver);
 		AddtoCart.click();
 		ViewCartLink.click();
 		proceedToCheckout.click();
